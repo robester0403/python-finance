@@ -32,10 +32,16 @@ for ticker in tickers:
     colnames.append(ticker)
     combined.columns = colnames
 
-
+plt.subplot(1,2,1)
 for ticker in tickers:
   plt.plot(combined[ticker], label=ticker)
-
-plt.legend(loc="upper left")
+  
 plt.title("Adjusted Close Price of Stocks")
+
+# The pct_change() method returns a DataFrame with the percentage difference between the values for each row and, by default, the previous row. Which row to compare with can be specified with the periods parameter.
+# corr() is used to find the pairwise correlation of all columns in the Pandas Dataframe in Python. Any NaN values are automatically excluded. Any non-numeric data type or columns in the Dataframe, it is ignored.
+plt.subplot(1,2,2)
+corr_data = combined.pct_change().corr('pearson')
+sns.heatmap(corr_data, annot=True, cmap="coolwarm")
+
 plt.show()
