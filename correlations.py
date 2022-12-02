@@ -43,5 +43,6 @@ plt.title("Adjusted Close Price of Stocks")
 plt.subplot(1,2,2)
 corr_data = combined.pct_change().corr('pearson')
 sns.heatmap(corr_data, annot=True, cmap="coolwarm")
+plt.title("Correlation between Stocks")
 
 plt.show()
