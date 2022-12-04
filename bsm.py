@@ -51,7 +51,6 @@ def gamma_calc(r, S, K, T, sigma, type="c"):
 def vega_calc(r, S, K, T, sigma, type="c"):
   "Calculate BS price of call/put"
   d1 = (np.log(S/K) + (r + sigma**2/2)*T)/(sigma*np.sqrt(T))
-  d2 = d1 - sigma*np.sqrt(T)
   try:
     vega_calc = S*norm.pdf(d1, 0, 1)*np.sqrt(T)
     return vega_calc*0.01, vega(type, S, K, T, r, sigma)
@@ -85,6 +84,7 @@ def rho_calc(r, S, K, T, sigma, type="c"):
       print("Please confirm option type, either 'c' for Call or 'p' for Put!")
 
 option_type='p'
+
 print("Option Price: ", round(blackScholes(r, S, K, T, sigma, option_type),3))
 print("       Delta: ", [round(x,3) for x in delta_calc(r, S, K, T, sigma, option_type)])
 print("       Gamma: ", [round(x,3) for x in gamma_calc(r, S, K, T, sigma, option_type)])
