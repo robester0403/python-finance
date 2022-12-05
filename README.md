@@ -5,6 +5,4 @@ making them into modules for use, keeping in mind some methods are meant for hug
 
 Some prediction models are chosen more as a demonstration.
 
-Only app.py and the bsm.py has close to usable functions so far
-
-t
+Only app.py and the bsm.py is being developed right now.
