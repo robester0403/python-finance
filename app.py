@@ -4,6 +4,9 @@ import pandas_datareader as web
 import datetime as dt
 import streamlit as st
 
+
+# This is a poorly trained model, but it's a start
+# We need to account for weekends and holidays in the future
 stock_ticker = st.text_input("Enter ticker", "AAPL")
 if stock_ticker == "":
     stock_ticker = "AAPL"
@@ -26,6 +29,8 @@ forecast = prophet.predict(future) # Fills the dataframe rows with predctions
 st.title(f"Stock Predictor for {stock_ticker}")
 st.subheader("Forecast")
 st.line_chart(forecast['trend'])
+
+
 # from prophet.plot import plot_plotly
 # import plotly.offline as py
 

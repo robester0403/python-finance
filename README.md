@@ -4,3 +4,5 @@ This is the financial tools background. We are focusing on making a few working 
 making them into modules for use, keeping in mind some methods are meant for huge datasets and some for much smaller required inputs.
 
 Some prediction models are chosen more as a demonstration.
+
+Only app.py and the bsm.py has close to usable functions so far
