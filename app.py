@@ -19,7 +19,6 @@ data['Date'] = data.index
 data= data[["Date", "Close"]]
 
 data.columns = ["ds", "y"]
-print(data.head())
 
 prophet = Prophet(daily_seasonality=True) 
 prophet.fit(data)
@@ -30,7 +29,7 @@ st.title(f"Stock Predictor for {stock_ticker}")
 st.subheader("Forecast")
 st.line_chart(forecast['trend'])
 
-
+# if you want to disply data using plotly
 # from prophet.plot import plot_plotly
 # import plotly.offline as py
 
