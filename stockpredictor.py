@@ -9,6 +9,7 @@ if stock_ticker == "":
     stock_ticker = "AAPL"
 start = dt.datetime(2020,1,1 )
 end = dt.datetime.now()
+period = st.slider("Days to predict", 30, 730, 365, 1)
 
 data = web.DataReader(stock_ticker, "yahoo", start, end)
 data['Date'] = data.index
@@ -20,7 +21,7 @@ print(data.head())
 prophet = Prophet(daily_seasonality=True) 
 prophet.fit(data)
 
-future = prophet.make_future_dataframe(periods=365) # Just makes future data
+future = prophet.make_future_dataframe(periods=period) # Just makes future data
 forecast = prophet.predict(future) # Fills the dataframe rows with predctions
 st.title(f"Stock Predictor for {stock_ticker}")
 st.subheader("Forecast")
