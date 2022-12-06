@@ -2,7 +2,7 @@ import pandas as pd
 from prophet import Prophet
 import pandas_datareader as web
 import datetime as dt
-import streamlit as st
+# import streamlit as st
 
 
 # This is a poorly trained model, but it's a start
@@ -25,13 +25,13 @@ prophet.fit(data)
 
 future = prophet.make_future_dataframe(periods=period) # Just makes future data
 forecast = prophet.predict(future) # Fills the dataframe rows with predctions
-st.title(f"Stock Predictor for {stock_ticker}")
-st.subheader("Forecast")
-st.line_chart(forecast['trend'])
+# st.title(f"Stock Predictor for {stock_ticker}")
+# st.subheader("Forecast")
+# st.line_chart(forecast['trend'])
 
-# if you want to disply data using plotly
-# from prophet.plot import plot_plotly
-# import plotly.offline as py
+if you want to disply data using plotly
+from prophet.plot import plot_plotly
+import plotly.offline as py
 
-# fig = plot_plotly(prophet, forecast)
-# py.plot(fig)
+fig = plot_plotly(prophet, forecast)
+py.plot(fig)
